@@ -1,0 +1,49 @@
+Batch Schedule
+
+Weekdays => Monday, Tuesday, Wednesday, Thursday, Friday  => Evenings after Office Hours
+Weekends => Saturday, Sunday => Whole Day
+Fastrack => Monday, Tuesday, Wednesday, Thursday, Friday => Whole Day
+
+
+PMP -> 17 Sept -> Weekend
+
+Date sheet generation based on Hours of Study
+Hours of study is recorded on course creation time
+Date sheet download
+
+TODO
+
+Excel Data Upload
+
+BATCH Change History // HOLD
+Payment History // DONE
+
+PHYSICAL HYBRID ONLINE -> BATCH MODE // DONE
+
+Custom Batch Type Creation for Standard Batches and An option to alter the standard Batches
+Custom Batch Type Creation for unique batch types
+
+Standard Batch types
+Name -> Days -> Time
+Weekday Evenings -> Thursday, Friday -> 7:00 PM to 9:30 PM
+Weekdays Fastrack -> Monday to Friday -> 9:00 AM to 4:00 PM
+Weekend Saturdays -> Saturday -> 8:00 AM to 2:00 PM
+Weekend Sundays -> Sunday -> 9:00 AM to 3:00 PM
+Weekend Sundays -> Sunday -> 8:00 AM to 2:00 PM
+Weekend Sundays -> Sunday -> 10:00 AM to 4:00 PM
+Weekend Sundays -> Sunday -> 8:00 AM to 4:00 PM
+Weekend Sundays -> Sunday -> 9:00 AM to 1:00 PM
+
+
+Lead assignment percentage for associate
+Followup Details filter Per Day -> TODAY AND TOMORROW
+Batch Code -> Location - Course Name - Batch Type - Batch Mode - Start Date ( Y-m-d H:M )
+Change Quoted Amount after Converted // DONE BUT DISCUSSION NEEDED
+
+DASHBOARD
+
+TOTAL SALES from first till now //
+Total Earning -> Sales Overview AND Collection Overview //
+Meeting Schedule -> Call Schedule per Associate //
+Transactions -> Payment details by Payment source //
+New Technologies Data -> Revenue comparison, 2 lines, last and current month //
