@@ -210,23 +210,23 @@ class DashboardController extends Controller
 
         foreach($batch_payment_history as $payment)
         {
-            if($payment->payment_type == 'Cash')
+            if($payment->payment_mode == 'Cash')
             {
                 $cash += $payment->amount;
             }
-            else if($payment->payment_type == 'Online')
+            else if($payment->payment_mode == 'Online')
             {
                 $online += $payment->amount;
             }
-            else if($payment->payment_type == 'Credit Card')
+            else if($payment->payment_mode == 'Credit Card')
             {
                 $credit_card += $payment->amount;
             }
-            else if($payment->payment_type == 'Bank Deposit')
+            else if($payment->payment_mode == 'Bank Deposit')
             {
                 $bank_deposit += $payment->amount;
             }
-            else if($payment->payment_type == 'Bank Transfer')
+            else if($payment->payment_mode == 'Bank Transfer')
             {
                 $bank_transfer += $payment->amount;
             }
