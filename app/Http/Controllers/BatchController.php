@@ -251,6 +251,17 @@ class BatchController extends Controller
         return true;
     }
 
+    public function deleteBatchType(Request $request)
+    {
+        $batch_type = BatchType::find($request->id);
+        $batch_type->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Batch Type Deleted Successfully'
+        ]);
+    }
+
     public function addBatchType(Request $request)
     {
         $batch_type = new BatchType();

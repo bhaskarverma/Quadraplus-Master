@@ -63,6 +63,7 @@ Route::get('/dashboard/total-sales-last-month', [DashboardController::class, 'To
 Route::post('/batch/create', [BatchController::class, 'createBatch'])->middleware('auth:sanctum'); // DONE
 Route::post('/batch/list/all', [BatchController::class, 'getAllBatches'])->middleware('auth:sanctum'); // DONE
 Route::post('/batch/delete', [BatchController::class, 'deleteBatch'])->middleware('auth:sanctum');
+Route::post('/batch/delete/type', [BatchController::class, 'deleteBatchType'])->middleware('auth:sanctum');
 Route::post('/batch/update', [BatchController::class, 'updateBatch'])->middleware('auth:sanctum');
 Route::post('/batch/list/course', [BatchController::class, 'getBatchesForCourse'])->middleware('auth:sanctum');
 Route::post('/batch/list/group', [BatchController::class, 'getBatchGroups'])->middleware('auth:sanctum'); // DONE
