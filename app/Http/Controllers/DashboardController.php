@@ -128,26 +128,29 @@ class DashboardController extends Controller
         foreach($all_associates as $associate)
         {
             $paid_leads = Lead::where('assigned_to', $associate->id)
+                ->where('status', 'Converted')
                 ->whereMonth('updated_at', date('m'))
                 ->get();
 
-            $batch_group = BatchGroup::where('participant_id', $associate->id)
-                ->first();
+            foreach($paid_leads as $paid_lead)
+            {
+                $batch_group = BatchGroup::where('participant_id', $paid_lead->id)
+                    ->first();
 
                 $total_paid_amount = 0;
 
-            if($batch_group)
-            {
-                $batch_payment_history = BatchPaymentHistory::where('batch_group_id', $batch_group->id)
-                ->get();
-
-                foreach($batch_payment_history as $payment)
+                if($batch_group)
                 {
-                    $total_paid_amount += $payment->amount;
-                    $total_paid_amount_this_month += $payment->amount;
+                    $batch_payment_history = BatchPaymentHistory::where('batch_group_id', $batch_group->id)
+                    ->get();
+
+                    foreach($batch_payment_history as $payment)
+                    {
+                        $total_paid_amount += $payment->amount;
+                        $total_paid_amount_this_month += $payment->amount;
+                    }
                 }
             }
-
 
 
             $collection_overview_data[] = [
