@@ -82,14 +82,6 @@ class CourseController extends Controller
 
     public function list()
     {
-        if(!(auth()->user()->type == 'admin'))
-        {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'You are not authorized to perform this action'
-            ]);
-        }
-
         $courses = Course::all();
 
         // Remove created_at and updated_at fields from the response
@@ -107,14 +99,6 @@ class CourseController extends Controller
 
     public function listAssociatesForCourse($courseId)
     {
-        if(!(auth()->user()->type == 'admin'))
-        {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'You are not authorized to perform this action'
-            ]);
-        }
-
         // Check if Course exists with the given id, if not return error
         $course = Course::find($courseId);
         if(!$course)
