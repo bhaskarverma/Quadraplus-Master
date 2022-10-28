@@ -132,12 +132,13 @@ class DashboardController extends Controller
                 ->whereMonth('updated_at', date('m'))
                 ->get();
 
+            $total_paid_amount = 0;
+
             foreach($paid_leads as $paid_lead)
             {
                 $batch_group = BatchGroup::where('participant_id', $paid_lead->id)
                     ->first();
 
-                $total_paid_amount = 0;
 
                 if($batch_group)
                 {
