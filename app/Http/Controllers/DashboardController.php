@@ -147,6 +147,11 @@ class DashboardController extends Controller
 
                     foreach($batch_payment_history as $payment)
                     {
+                        if($payment->payment_mode == 'Referral')
+                        {
+                            continue;
+                        }
+
                         $total_paid_amount += $payment->amount;
                         $total_paid_amount_this_month += $payment->amount;
                     }
