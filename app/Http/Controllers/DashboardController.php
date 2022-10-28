@@ -313,7 +313,7 @@ class DashboardController extends Controller
 
             $associates_table[] = [
                 'id' => $associate,
-                'associate' => User::where('id', $associate)->name,
+                'associate' => User::where('id', $associate)->first()->name,
                 'total_leads' => $associate_data['total_leads'],
                 'converted_leads' => $associate_data['converted_leads'],
                 'failed_leads' => $associate_data['failed_leads'],
