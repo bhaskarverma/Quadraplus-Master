@@ -347,7 +347,7 @@ class DashboardController extends Controller
         $detailed_data = [];
 
         // Fetch all the users
-        $users = User::all();
+        $users = User::where('type', 'associate')->get();
 
         // Loop through the users and fetch all their assigned courses
         foreach($users as $user)
