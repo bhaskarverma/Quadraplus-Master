@@ -49,14 +49,6 @@ class AuthController extends Controller
 
     public function listUsers()
     {
-        if(!(auth()->user()->type == 'admin'))
-        {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'You are not authorized to perform this action'
-            ]);
-        }
-
         $users = User::all();
 
         foreach($users as $user)
