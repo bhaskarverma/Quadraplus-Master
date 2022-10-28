@@ -223,7 +223,7 @@ class DashboardController extends Controller
         }
 
         return response()->json([
-            'referral_overview_data' => $collection_overview_data,
+            'referral_overview_data' => $referral_overview_data,
             'total_referral_amount_this_month' => $total_paid_amount_this_month,
             'total_referral_amount_last_month' => $total_paid_amount_last_month
         ]);
