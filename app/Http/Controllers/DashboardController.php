@@ -172,6 +172,63 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function ReferralOverview()
+    {
+        // Same as SalesOverview() but for payments
+        // Payments are those whose status = 'Paid'
+        $referral_overview_data = [];
+
+        $all_associates = User::where('type', 'associate')->get();
+        $total_paid_amount_this_month = 0;
+        $total_paid_amount_last_month = 0;
+
+        foreach($all_associates as $associate)
+        {
+            $paid_leads = Lead::where('assigned_to', $associate->id)
+                ->where('status', 'Converted')
+                ->whereMonth('updated_at', date('m'))
+                ->get();
+
+            $total_paid_amount = 0;
+
+            foreach($paid_leads as $paid_lead)
+            {
+                $batch_group = BatchGroup::where('participant_id', $paid_lead->id)
+                    ->first();
+
+
+                if($batch_group)
+                {
+                    $batch_payment_history = BatchPaymentHistory::where('batch_group_id', $batch_group->id)
+                    ->get();
+
+                    foreach($batch_payment_history as $payment)
+                    {
+                        if($payment->payment_mode != 'Referral')
+                        {
+                            continue;
+                        }
+
+                        $total_paid_amount += $payment->amount;
+                        $total_paid_amount_this_month += $payment->amount;
+                    }
+                }
+            }
+
+
+            $referral_overview_data[] = [
+                'associate' => $associate->name,
+                'amount' => $total_paid_amount
+            ];
+        }
+
+        return response()->json([
+            'referral_overview_data' => $collection_overview_data,
+            'total_referral_amount_this_month' => $total_paid_amount_this_month,
+            'total_referral_amount_last_month' => $total_paid_amount_last_month
+        ]);
+    }
+
     public function MeetingDetails()
     {
         // Fetch all the Lead Followups where date_of_next_action is today
