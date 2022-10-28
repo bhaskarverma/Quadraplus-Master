@@ -322,7 +322,7 @@ class DashboardController extends Controller
             ];
         }
 
-        $all_associates = User::all();
+        $all_associates = User::where('type', 'associate')->get();
         foreach ($all_associates as $associate) {
             $associate_exists = false;
             foreach ($associates_table as $associate_table) {
