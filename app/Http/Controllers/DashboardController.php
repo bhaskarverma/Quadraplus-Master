@@ -274,7 +274,7 @@ class DashboardController extends Controller
         // Associate can be identified by assigned_to column
 
         //DEBUG
-        $debug = "";
+        $debug = [];
         //END DEBUG
 
         $associates = [];
@@ -311,87 +311,90 @@ class DashboardController extends Controller
                 $efficiency = ($associate_data['converted_leads'] / $associate_data['total_leads']) * 100;
             }
 
-            $associates_table[] = [
-                'id' => $associate,
-                'associate' => User::find($associate)->name,
-                'total_leads' => $associate_data['total_leads'],
-                'converted_leads' => $associate_data['converted_leads'],
-                'failed_leads' => $associate_data['failed_leads'],
-                'remaining_leads' => $associate_data['remaining_leads'],
-                'efficiency' => $efficiency
-            ];
+            $debug[] = $associate;
+
+            // $associates_table[] = [
+            //     'id' => $associate,
+            //     'associate' => User::find($associate)->name,
+            //     'total_leads' => $associate_data['total_leads'],
+            //     'converted_leads' => $associate_data['converted_leads'],
+            //     'failed_leads' => $associate_data['failed_leads'],
+            //     'remaining_leads' => $associate_data['remaining_leads'],
+            //     'efficiency' => $efficiency
+            // ];
         }
 
-        $all_associates = User::all();
-        foreach ($all_associates as $associate) {
-            $associate_exists = false;
-            foreach ($associates_table as $associate_table) {
-                if ($associate->id == $associate_table['id']) {
-                    $associate_exists = true;
-                }
-            }
-            if (!$associate_exists) {
-                $associates_table[] = [
-                    'id' => $associate->id,
-                    'associate' => $associate->name,
-                    'total_leads' => 0,
-                    'converted_leads' => 0,
-                    'failed_leads' => 0,
-                    'remaining_leads' => 0,
-                    'efficiency' => 0
-                ];
-            }
-        }
+        // $all_associates = User::all();
+        // foreach ($all_associates as $associate) {
+        //     $associate_exists = false;
+        //     foreach ($associates_table as $associate_table) {
+        //         if ($associate->id == $associate_table['id']) {
+        //             $associate_exists = true;
+        //         }
+        //     }
+        //     if (!$associate_exists) {
+        //         $associates_table[] = [
+        //             'id' => $associate->id,
+        //             'associate' => $associate->name,
+        //             'total_leads' => 0,
+        //             'converted_leads' => 0,
+        //             'failed_leads' => 0,
+        //             'remaining_leads' => 0,
+        //             'efficiency' => 0
+        //         ];
+        //     }
+        // }
 
-        // Creating the Detailed Data
-        $detailed_data = [];
+        // // Creating the Detailed Data
+        // $detailed_data = [];
 
-        // Fetch all the users
-        $users = User::all();
+        // // Fetch all the users
+        // $users = User::all();
 
-        // Loop through the users and fetch all their assigned courses
-        foreach($users as $user)
-        {
-            $userId = $user->id;
+        // // Loop through the users and fetch all their assigned courses
+        // foreach($users as $user)
+        // {
+        //     $userId = $user->id;
 
-            $userData = [];
-            $userData['associate_id'] = $userId;
-            $userData['data'] = [];
+        //     $userData = [];
+        //     $userData['associate_id'] = $userId;
+        //     $userData['data'] = [];
 
-            $courses = CourseGroup::where('user_id', $userId)->get();
+        //     $courses = CourseGroup::where('user_id', $userId)->get();
 
-            foreach($courses as $course)
-            {
-                $leads = Lead::where('course_id', $course->course_id)->whereBetween('created_at', [$start_date, $end_date])->where('assigned_to', $userId)->get();
+        //     foreach($courses as $course)
+        //     {
+        //         $leads = Lead::where('course_id', $course->course_id)->whereBetween('created_at', [$start_date, $end_date])->where('assigned_to', $userId)->get();
 
-                $courseData = [];
-                $courseData['id'] = $course->course_id;
-                $courseData['course_name'] = Course::find($course->course_id)->name;
-                $courseData['total_leads'] = $leads->count();
-                $courseData['converted_leads'] = $leads->where('status', 'Converted')->count();
-                $courseData['failed_leads'] = $leads->where('status', 'Failed')->count();
-                $courseData['remaining_leads'] = $leads->where('status', 'Pending')->count();
+        //         $courseData = [];
+        //         $courseData['id'] = $course->course_id;
+        //         $courseData['course_name'] = Course::find($course->course_id)->name;
+        //         $courseData['total_leads'] = $leads->count();
+        //         $courseData['converted_leads'] = $leads->where('status', 'Converted')->count();
+        //         $courseData['failed_leads'] = $leads->where('status', 'Failed')->count();
+        //         $courseData['remaining_leads'] = $leads->where('status', 'Pending')->count();
 
-                if($courseData['total_leads'] == 0)
-                {
-                    $efficiency = 0;
-                }
-                else
-                {
-                    $efficiency = ($courseData['converted_leads'] / $courseData['total_leads']) * 100;
-                }
+        //         if($courseData['total_leads'] == 0)
+        //         {
+        //             $efficiency = 0;
+        //         }
+        //         else
+        //         {
+        //             $efficiency = ($courseData['converted_leads'] / $courseData['total_leads']) * 100;
+        //         }
 
-                $courseData['efficiency'] = $efficiency;
-                array_push($userData['data'], $courseData);
-            }
+        //         $courseData['efficiency'] = $efficiency;
+        //         array_push($userData['data'], $courseData);
+        //     }
 
-            array_push($detailed_data, $userData);
-        }
+        //     array_push($detailed_data, $userData);
+        // }
 
         return response()->json([
             'status' => 'success',
-            'data' => $associates_table,
-            'detailed_data' => $detailed_data
+            // 'data' => $associates_table,
+            // 'detailed_data' => $detailed_data
+            'data' => $debug
         ]);
     }
 
