@@ -544,7 +544,7 @@ class DashboardController extends Controller
 
     public function SourceBasedEffortBetweenDates(Request $request)
     {
-        $all_source_list = ['WhatsApp', 'Email', 'Landline Call', 'Mobile Call', 'Referral', 'Live Chat', 'Website - Enquiry Form', 'Website - Contact Form', 'Facebook'];
+        $all_source_list = ['WhatsApp', 'Email', 'Landline Call', 'Mobile Call', 'Referral', 'Live Chat', 'Website - Enquiry Form', 'Website - Contact Form', 'Facebook', 'Walk-In'];
         // This method is same as AssociateEffortBetweenDates except that it is based on source instead of associate
         $start_date = $request->start_dt;
         $end_date = $request->end_dt;
