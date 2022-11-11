@@ -328,8 +328,8 @@ class DashboardController extends Controller
 
     public function AssociateEffortBetweenDates(Request $request)
     {
-        $start_date = $request->start_dt;
-        $end_date = $request->end_dt;
+        $start_date = $request->start_dt . ' 00:00:00';
+        $end_date = $request->end_dt . ' 23:59:59';
 
         // Get all the leads between the dates
         $leads = Lead::whereBetween('created_at', [$start_date, $end_date])->where('status', '!=', 'In The Pool')->get();
@@ -464,8 +464,8 @@ class DashboardController extends Controller
     public function CourseBasedEffortBetweenDates(Request $request)
     {
         // This method is same as AssociateEffortBetweenDates except that it is based on course instead of associate
-        $start_date = $request->start_dt;
-        $end_date = $request->end_dt;
+        $start_date = $request->start_dt . ' 00:00:00';
+        $end_date = $request->end_dt . ' 23:59:59';
 
         // $start_date = '2022-06-01';
         // $end_date = '2022-09-01';
@@ -546,8 +546,8 @@ class DashboardController extends Controller
     {
         $all_source_list = ['WhatsApp', 'Email', 'Landline Call', 'Mobile Call', 'Referral', 'Live Chat', 'Website - Enquiry Form', 'Website - Contact Form', 'Facebook', 'Walk-In'];
         // This method is same as AssociateEffortBetweenDates except that it is based on source instead of associate
-        $start_date = $request->start_dt;
-        $end_date = $request->end_dt;
+        $start_date = $request->start_dt . ' 00:00:00';
+        $end_date = $request->end_dt . ' 23:59:59';
         // $start_date = '2022-06-01';
         // $end_date = '2022-09-01';
         $sources = [];

@@ -49,8 +49,8 @@ class LeadController extends Controller
     public function getLeads(Request $request)
     {
         // Start and End Date
-        $startDate = $request->start_date;
-        $endDate = $request->end_date;
+        $startDate = $request->start_date . ' 00:00:00';
+        $endDate = $request->end_date . ' 23:59:59';
 
         // Get all the leads assigned to the user and between the start and end date
         $leads = Lead::where('assigned_to', auth()->user()->id)
@@ -113,8 +113,8 @@ class LeadController extends Controller
     public function getAllLeads()
     {
         // Start and End Date
-        $startDate = request()->start_date;
-        $endDate = request()->end_date;
+        $startDate = request()->start_date . ' 00:00:00';
+        $endDate = request()->end_date . ' 23:59:59';
 
         // Check if the user is a admin, then only show all the leads
         if(!(auth()->user()->type == 'admin'))
