@@ -8,6 +8,7 @@ use App\Http\Controllers\LeadController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BatchController;
+use App\Http\Controllers\HelperController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,3 +82,5 @@ Route::get('/batch/attendance/{batchId}', [BatchController::class, 'fetchAttenda
 Route::get('/batch/trainers', [BatchController::class, 'getTrainers'])->middleware('auth:sanctum'); // DONE
 Route::get('/batch/types', [BatchController::class, 'getBatchTypes'])->middleware('auth:sanctum'); // DONE
 Route::post('/batch/type/create', [BatchController::class, 'addBatchType'])->middleware('auth:sanctum'); // DONE
+
+Route::get('/helper/bulk', [HelperController::class, 'uploadBulkData']);

@@ -16,12 +16,12 @@ class LeadController extends Controller
     {
         $name = $request->name;
 
-        if($name == null) {
+        if($name == null || $name == "") {
             $name = "N/A";
         }
 
         $lead = new Lead;
-        $lead->name = $request->name;
+        $lead->name = $name;
         $lead->contact_no = $request->contact_no;
         $lead->email = $request->email;
         $lead->company = $request->company;
