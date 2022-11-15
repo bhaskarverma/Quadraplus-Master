@@ -22,6 +22,10 @@ class HelperController extends Controller
         {
             $date = $date[2] . "-" . $date[1] . "-" . $date[0];
         }
+        else
+        {
+            $date = $date[0];
+        }
 
         $assoc_id = $row[2];
         $course_id = $row[4];
