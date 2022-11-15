@@ -250,6 +250,11 @@ class DashboardController extends Controller
             $lead = Lead::find($meeting->lead_id);
             $associate = User::find($lead->assigned_to);
 
+            if(!$associate)
+            {
+                continue;
+            }
+
             $response[] = [
                 'title' => $associate->name . "'s Call With " . $lead->name,
                 'date' => date('d M', strtotime($meeting->date_of_next_action)),
