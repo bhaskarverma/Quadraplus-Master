@@ -11,7 +11,18 @@ class HelperController extends Controller
 
     private function createLead($row)
     {
+
+        // Check if the date is in format dd/mm/yyyy, if yes then convert them to yyyy-mm-dd
+
         $date = $row[0];
+
+        $date = explode('/', $date);
+
+        if(count($date) > 1)
+        {
+            $date = $date[2] . "-" . $date[1] . "-" . $date[0];
+        }
+
         $assoc_id = $row[2];
         $course_id = $row[4];
         $name = $row[5];
@@ -46,7 +57,7 @@ class HelperController extends Controller
 
     public function uploadBulkData()
     {
-        $file = fopen("sheet_1.csv","r");
+        $file = fopen("sheet_2.csv","r");
 
         $arr = [];
 
