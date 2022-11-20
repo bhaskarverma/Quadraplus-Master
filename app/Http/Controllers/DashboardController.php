@@ -337,7 +337,7 @@ class DashboardController extends Controller
         $end_date = $request->end_dt . ' 23:59:59';
 
         // Get all the leads between the dates
-        $leads = Lead::whereBetween('created_at', [$start_date, $end_date])->where('status', '!=', 'In The Pool')->get();
+        $leads = Lead::whereBetween('updated_at', [$start_date, $end_date])->where('status', '!=', 'In The Pool')->get();
 
         // Loop through the leads
         // Calculate the effort for each associate
@@ -476,7 +476,7 @@ class DashboardController extends Controller
         // $end_date = '2022-09-01';
 
         // Get all the leads between the dates
-        $leads = Lead::whereBetween('created_at', [$start_date, $end_date])->get();
+        $leads = Lead::whereBetween('updated_at', [$start_date, $end_date])->get();
         $courses = [];
 
         foreach ($leads as $lead) {
@@ -556,7 +556,7 @@ class DashboardController extends Controller
         // $start_date = '2022-06-01';
         // $end_date = '2022-09-01';
         $sources = [];
-        $leads = Lead::whereBetween('created_at', [$start_date, $end_date])->get();
+        $leads = Lead::whereBetween('updated_at', [$start_date, $end_date])->get();
         foreach ($leads as $lead) {
             $source = $lead->source;
             $sources[$source] = $sources[$source] ?? [];
