@@ -326,8 +326,15 @@ class LeadController extends Controller
         // Of all the users, find the one with the least active leads
         // Active leads are those which are not Converted or Failed
         // Assign the lead to the selected user
+        // $selected_user = $users->sortBy(function($user) {
+        //     $user_leads = Lead::where('assigned_to', $user->user_id)->whereNotIn('status', ['Converted', 'Failed'])->get();
+        //     return count($user_leads);
+        // })->first();
+
+        // Of all the users, find the one with the least leads this month
+        // Assign the lead to the selected user
         $selected_user = $users->sortBy(function($user) {
-            $user_leads = Lead::where('assigned_to', $user->user_id)->whereNotIn('status', ['Converted', 'Failed'])->get();
+            $user_leads = Lead::where('assigned_to', $user->user_id)->whereMonth('created_at', date('m'))->get();
             return count($user_leads);
         })->first();
 
