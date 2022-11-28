@@ -19,7 +19,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 2020-12-09,Gabriel,5,CFM-Certified Facility Manager,2,Akhil T,akhil.t.612@gmail.com,058-980 6791,Website - Enquiry Form
 2020-12-10,Gabriel,5,CFM-Certified Facility Manager,2,Honey Chelle G Catague,honey.catague@meraas.ae,058-587 9800,Website - Enquiry Form
 2020-12-12,Gabriel,5,CFM-Certified Facility Manager,2,Suresh Babu,ssbsureshnambiar@gmail.com,050-789 2506,Website - Enquiry Form
-2020-12-13,Gabriel,5,CFM-Certified Facility Manager,2,Partibal,N/A,"052-428 6787 ""050-317-8551 052-426-7687""",Website - Enquiry Form
+2020-12-13,Gabriel,5,CFM-Certified Facility Manager,2,Partibal,N/A,052-428 6787,Website - Enquiry Form
 2020-12-14,Gabriel,5,CFM-Certified Facility Manager,2,JAved,N/A,052-690-5300,Landline Call
 2020-12-15,Gabriel,5,CFM-Certified Facility Manager,2,Pathan Saidulla Khan,kmushir077@gmail.com,919-313608849,Website - Enquiry Form
 2020-12-19,Gabriel,5,CFM-Certified Facility Manager,2,Viswanadhapalli Gopi Raju,gopiviswanadhapalli@gmail.com,052-226 2634,Website - Enquiry Form
@@ -54,7 +54,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 2021-02-25,Gabriel,5,CFM-Certified Facility Manager,2,Mohammed Abusalameh,mohdabusalameh@gmail.com,050-7676024,Website - Enquiry Form
 2021-02-28,Gabriel,5,CFM-Certified Facility Manager,2,Sarwar,N/A,052- 368 0632,Website - Enquiry Form
 2021-02-28,Gabriel,5,CFM-Certified Facility Manager,2,Syed Arif,N/A,050-757 0410,Website - Enquiry Form
-2021-03-03,Gabriel,5,CFM-Certified Facility Manager,2,Julius Kola,Have two numbers.,055-944 1612 056-537 1334,Website - Enquiry Form
+2021-03-03,Gabriel,5,CFM-Certified Facility Manager,2,Julius Kola,Have two numbers.,055-944 1612,Website - Enquiry Form
 2021-03-08,Gabriel,5,CFM-Certified Facility Manager,2,Tarun Thakur,tarunthakur15@yahoo.com,753-2952353,Website - Enquiry Form
 2021-03-08,Gabriel,5,CFM-Certified Facility Manager,2,Omar Khalid Malik,omar.khalid@parsons.com,050-7711695,Website - Enquiry Form
 2021-03-15,Gabriel,5,CFM-Certified Facility Manager,2,Febin Jamal,febinjamal@gmail.com,055-8034924,Website - Enquiry Form
@@ -358,7 +358,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 18/11/2021,Gabriel,5,CFM-Certified Facility Manager,2,Hesham El Gamal,mrcoco72@hotmail.com,052-9402715,Website - Enquiry Form
 18/11/2021,Gabriel,5,CFM-Certified Facility Manager,2,N/A,,056-682 5621,Whatsapp
 18/11/2021,Gabriel,5,CFM-Certified Facility Manager,2,mohd jamal,mohdj4421@gmail.com,050-732 5526,Website - Enquiry Form
-20/11/2021,Gabriel,5,CFM-Certified Facility Manager,2,Barkath,barkathj8@gmail.com,052-4848297 055-159 1458,Website - Enquiry Form
+20/11/2021,Gabriel,5,CFM-Certified Facility Manager,2,Barkath,barkathj8@gmail.com,052-4848297,Website - Enquiry Form
 20/11/2021,Gabriel,5,CFM-Certified Facility Manager,2,arun mathew,arunmtvc@gmail.com,050-8006625,Website - Enquiry Form
 21/11/2021,Gabriel,5,CFM-Certified Facility Manager,2,Abdul Hafeez,hafeez.ucp@gmail.com,056-1403655,Website - Enquiry Form
 21/11/2021,Gabriel,5,CFM-Certified Facility Manager,2,Nafisa,nafisa141@yahoo.com,055-6712615,Website - Enquiry Form
@@ -503,7 +503,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 26/01/2022,Gabriel,5,CFM-Certified Facility Manager,2,John,silvy.serjy@yahoo.com,050-6324930,Landline Call
 26/01/2022,Gabriel,5,CFM-Certified Facility Manager,2,Zulfiya Madyarova,zmadeyarova@yahoo.com,050-7840874,Live Chat
 27/01/2022,Gabriel,5,CFM-Certified Facility Manager,2,Laith Ayoub,eng.laithalqudah@gmail.com,052-6396754,Website - Enquiry Form
-26/01/2022,Gabriel,5,CFM-Certified Facility Manager,2,Deepak,smilingdeepak89@gmail.com,055-6109201/00919633-539553,Whatsapp
+26/01/2022,Gabriel,5,CFM-Certified Facility Manager,2,Deepak,smilingdeepak89@gmail.com,055-6109201,Whatsapp
 27/01/2022,Gabriel,5,CFM-Certified Facility Manager,2,Arun,arunkrishnagp@gmail.com,052-6380008,Live Chat
 28/01/2022,Gabriel,5,CFM-Certified Facility Manager,2,Owais,oshusk26@gmail.com,055-5680580,Website - Enquiry Form
 28/01/2022,Gabriel,5,CFM-Certified Facility Manager,2,Vaajith,vaajith87@gmail.com,055-5061089,Website - Enquiry Form
@@ -516,7 +516,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 2022-02-02,Gabriel,5,CFM-Certified Facility Manager,2,Sana,Sanadeen5@gmail.com,056-5898376,Website - Enquiry Form
 2022-04-02,Gabriel,5,CFM-Certified Facility Manager,2,Rohin P Johnson,rohinjohnson10@gmail.com,052-1995445,Website - Enquiry Form
 2022-05-02,Gabriel,5,CFM-Certified Facility Manager,2,Gautam Gupta,gautamgupta0202@gmail.com,054-5569761,Website - Enquiry Form
-2022-08-02,Gabriel,5,CFM-Certified Facility Manager,2,Pranab Anandkumar,pranabak@gmail.com,,Live Chat
+2022-08-02,Gabriel,5,CFM-Certified Facility Manager,2,Pranab Anandkumar,pranabak@gmail.com,N/A,Live Chat
 2022-08-02,Gabriel,5,CFM-Certified Facility Manager,2,Delson Daniel,delsondaniel88@gmail.com,056-9454845,Website - Enquiry Form
 2022-09-02,Gabriel,5,CFM-Certified Facility Manager,2,Mustafa,,056-4452566,Landline Call
 2022-09-02,Gabriel,5,CFM-Certified Facility Manager,2,Che Aaron,kimpalo56@gmail.com,052-2993904,Website - Enquiry Form
@@ -556,7 +556,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 2022-09-03,Gabriel,5,CFM-Certified Facility Manager,2,Mothi Anand,anand.anand302@gmail.com,050-9986947,Website - Enquiry Form
 2022-03-11,Gabriel,5,CFM-Certified Facility Manager,2,Muhammad Shafiq Ahmad,almisbahshafiq@gmail.com,054-3877786,Live Chat
 2022-03-11,Gabriel,5,CFM-Certified Facility Manager,2,Nasser Mohmoud Alawamleh,nasser_awamleh1989@hotmail.com,050-6760141,Live Chat
-2022-03-12,Gabriel,5,CFM-Certified Facility Manager,2,Riyaz,riyaz393@gmail.com,,Live Chat
+2022-03-12,Gabriel,5,CFM-Certified Facility Manager,2,Riyaz,riyaz393@gmail.com,N/A,Live Chat
 2022-03-12,Gabriel,5,CFM-Certified Facility Manager,2,Abdulla Moosa,abdulla_moosa@amsgroup.ca,050-3143372,Website - Enquiry Form
 2022-03-12,Gabriel,5,CFM-Certified Facility Manager,2,Alvy,hseortiz@gmail.com,055-5221235,Website - Enquiry Form
 2022-03-12,Gabriel,5,CFM-Certified Facility Manager,2,Desmond Nkeng,nkengdesmond547@gmail.com,052-9727208,Website - Enquiry Form
@@ -564,7 +564,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 13/04/2022,Gabriel,5,CFM-Certified Facility Manager,2,Mohammad Najibullah,techxpace@gmail.com,919973028786,Website - Enquiry Form
 14/04/2022,Gabriel,5,CFM-Certified Facility Manager,2,Ahmad,ahmadnayefabd@gmail.com,050-2086266,Website - Enquiry Form
 15/04/2022,Gabriel,5,CFM-Certified Facility Manager,2,Amjad,baigbaig1973@gmail.com,056-6180029,Website - Enquiry Form
-15/04/2022,Gabriel,5,CFM-Certified Facility Manager,2,Charles Beltran,charles.beltran@serco.ae,054-4614981 / 056-2924993,Live Chat
+15/04/2022,Gabriel,5,CFM-Certified Facility Manager,2,Charles Beltran,charles.beltran@serco.ae,054-4614981,Live Chat
 15/04/2022,Gabriel,5,CFM-Certified Facility Manager,2,Hussein Fouda,haama1979@gmail.com,056-5476165,Whatsapp
 15/04/2022,Gabriel,5,CFM-Certified Facility Manager,2,Ali Amjathkan,bamjath@yahoo.com,056-3854949,Live Chat
 18/04/2022,Gabriel,5,CFM-Certified Facility Manager,2,Dinesh Kumar,dinesh17193@gmail.com,056-6636270,Website - Enquiry Form
@@ -601,7 +601,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 2022-04-05,Gabriel,5,CFM-Certified Facility Manager,2,Sahil Modak,sahilmodak88@gmail.com,050-1814352,Website - Enquiry Form
 2022-04-05,Gabriel,5,CFM-Certified Facility Manager,2,Asif,mohamedasif10@gmail.com,052-5252901,Website - Enquiry Form
 2022-05-04,Gabriel,5,CFM-Certified Facility Manager,2,Mayada,en.mayada.alfadnni@gmail.com,050-3992605,Website - Enquiry Form
-2022-05-05,Gabriel,5,CFM-Certified Facility Manager,2,Ansar Ali,aliansar.mep@gmail.com,"05/05/2022-will check details first, send email, offered 1700aed vat incl promo only, sent whatsapp msg 10/05-no answer, sent whatsapp msg 11/05-having financial difficulty, offered 1700aed vat incl promo only online and to pay in full June04, not interested at this time. 07/06/22 - sent details on whatsapp. 09/06/22 - followed up on whatsapp",Website - Enquiry Form
+2022-05-05,Gabriel,5,CFM-Certified Facility Manager,2,Ansar Ali,aliansar.mep@gmail.com,N/A,Website - Enquiry Form
 2022-06-05,Gabriel,5,CFM-Certified Facility Manager,2,Nageswara,,050-1494213,Website - Enquiry Form
 2022-06-05,Gabriel,5,CFM-Certified Facility Manager,2,Ananduraj,anandhuraj61@gmail.com,054-4754179,Website - Enquiry Form
 2022-07-05,Gabriel,5,CFM-Certified Facility Manager,2,Abubaker Elageed,abubakerelageed@gmail.com,050-9781158,Website - Enquiry Form
@@ -676,7 +676,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 2022-08-15,Gabriel,5,CFM-Certified Facility Manager,2,Musaab,Eng.musab.Mohamed@gmail.com,549968499,Website - Enquiry Form
 2022-08-15,Gabriel,5,CFM-Certified Facility Manager,2,Hassan Muhamad,Omairh74@gmail.com,554830626,Website - Enquiry Form
 2022-08-15,Gabriel,5,CFM-Certified Facility Manager,2,Riyaz,Riyasazis@gmail.com,501148610,Website - Enquiry Form
-2022-08-15,Gabriel,5,CFM-Certified Facility Manager,2,Singh,Mkaundal@yahoo.com,,Website - Enquiry Form
+2022-08-15,Gabriel,5,CFM-Certified Facility Manager,2,Singh,Mkaundal@yahoo.com,N/A,Website - Enquiry Form
 2022-08-18,Gabriel,5,CFM-Certified Facility Manager,2,Vishnu,P.vishnu999@gmail.com,564979169,Website - Enquiry Form
 2022-08-20,Gabriel,5,CFM-Certified Facility Manager,2,Sanjay Jaison,imsanjayjaison@gmail.com,567803383,Website - Enquiry Form
 2022-08-22,Gabriel,5,CFM-Certified Facility Manager,2,Prabhakar Manda,prabhakar.mandaa@gmail.com,569873430,Website - Enquiry Form
@@ -687,7 +687,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 2022-08-25,Gabriel,5,CFM-Certified Facility Manager,2,Harsh,Harshithaarun@live.com,55769199,Website - Enquiry Form
 2022-08-25,Gabriel,5,CFM-Certified Facility Manager,2,Rojan,,523443770,Website - Enquiry Form
 2022-08-26,Gabriel,5,CFM-Certified Facility Manager,2,Ruel,Ruel.ancheta.espiritu@gmail.com,581931270,Website - Enquiry Form
-2022-08-26,Gabriel,5,CFM-Certified Facility Manager,2,Sheik,Skgousebasha143@gmail.com,,Website - Enquiry Form
+2022-08-26,Gabriel,5,CFM-Certified Facility Manager,2,Sheik,Skgousebasha143@gmail.com,N/A,Website - Enquiry Form
 2022-08-27,Gabriel,5,CFM-Certified Facility Manager,2,Benjamin,Benkokoti2@gmail.com,521089693,Website - Enquiry Form
 2022-08-27,Gabriel,5,CFM-Certified Facility Manager,2,Imran,Mechanical001992@gmail.com,522889630,Website - Enquiry Form
 2022-08-28,Gabriel,5,CFM-Certified Facility Manager,2,Fahadh,Fahadheranchol@gmail.com,544937756,Website - Enquiry Form
@@ -702,7 +702,7 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 2022-09-01,Gabriel,5,CFM-Certified Facility Manager,2,Arman Kalam,akalam5@yahoo.com,566494542,Website - Enquiry Form
 2022-09-02,Gabriel,5,CFM-Certified Facility Manager,2,Abdul Wahab Kanu,abdulwahabkanu@gmail.com,545236499,Website - Enquiry Form
 2022-09-02,Gabriel,5,CFM-Certified Facility Manager,2,Mohamed Asik,mohamedasikcivil@gmail.com,555627074,Website - Enquiry Form
-2022-09-03,Gabriel,5,CFM-Certified Facility Manager,2,Khurram Nawaz Abbasi,khurram.abbasi2013@gmail.com,,Website - Enquiry Form
+2022-09-03,Gabriel,5,CFM-Certified Facility Manager,2,Khurram Nawaz Abbasi,khurram.abbasi2013@gmail.com,N/A,Website - Enquiry Form
 2022-09-03,Gabriel,5,CFM-Certified Facility Manager,2,Nasky Musthafa,nas.fana@gmail.com,52877833,Website - Enquiry Form
 2022-09-04,Gabriel,5,CFM-Certified Facility Manager,2,Rakesh kumar,ambikadecor2016@gmail.com,586142586,Website - Enquiry Form
 2022-09-04,Gabriel,5,CFM-Certified Facility Manager,2,Muhammad Usman Rauf,usman_rauf121@yahoo.com,509420196,Website - Enquiry Form
@@ -711,7 +711,6 @@ DATE,AGENT,Agent ID,COURSE,Course Id,NAME,EMAIL,NUMBER,Source
 2022-09-06,Gabriel,5,CFM-Certified Facility Manager,2,hashir,hashiralikoya@gmail.com,525223525,Website - Enquiry Form
 2022-09-06,Gabriel,5,CFM-Certified Facility Manager,2,Shefin Shamnad,shefinshamnad14213@gmail.com,054-3877786,Website - Enquiry Form
 2022-09-07,Gabriel,5,CFM-Certified Facility Manager,2,Saifullah Nisar,mep.engr.saif@outlook.com,050-6760141,Website - Enquiry Form
-2022-09-07,Gabriel,5,CFM-Certified Facility Manager,2,Nafrudeen,,,Website - Enquiry Form
 2022-09-08,Gabriel,5,CFM-Certified Facility Manager,2,Muhammad Azeem,thezaeem300@gmail.com,050-3143372,Website - Enquiry Form
 2022-09-08,Gabriel,5,CFM-Certified Facility Manager,2,Manisha Sharma,pinks_7@yahoo.com,055-5221235,Website - Enquiry Form
 2022-09-09,Gabriel,5,CFM-Certified Facility Manager,2,Jaya Prakash,jayaprakash.07mech@gmail.com,052-9727208,Website - Enquiry Form
