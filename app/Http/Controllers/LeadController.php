@@ -323,22 +323,34 @@ class LeadController extends Controller
             return;
         }
 
-        // Of all the users, find the one with the least active leads
-        // Active leads are those which are not Converted or Failed
-        // Assign the lead to the selected user
-        // $selected_user = $users->sortBy(function($user) {
-        //     $user_leads = Lead::where('assigned_to', $user->user_id)->whereNotIn('status', ['Converted', 'Failed'])->get();
-        //     return count($user_leads);
-        // })->first();
+        // Assign the lead to the user
+        // If there is only one user, then assign the lead to that user
+        // If there are 2 users, then assign the lead to the user which was not assigned the last lead for the course
+        // If there are 3 users, then assign the lead to the user which was not assigned the last 2 leads for the course
+        // If there are 4 users, then assign the lead to the user which was not assigned the last 3 leads for the course and so on
 
-        // Of all the users, find the one with the least leads this month
-        // Assign the lead to the selected user
-        $selected_user = $users->sortBy(function($user) {
-            $user_leads = Lead::where('assigned_to', $user->user_id)->whereMonth('created_at', date('m'))->get();
-            return count($user_leads);
-        })->first();
+        $user_count = count($users);
 
-        $lead->assigned_to = $selected_user->user_id;
+        if($user_count == 1)
+        {
+            $lead->assigned_to = $users[0]->user_id;
+        }
+        else
+        {
+            $last_assigned_user = Lead::where('course_id', $course_id)->latest()->first()->assigned_to;
+            $last_assigned_user_index = 0;
+            for($i = 0; $i < $user_count; $i++)
+            {
+                if($users[$i]->user_id == $last_assigned_user)
+                {
+                    $last_assigned_user_index = $i;
+                    break;
+                }
+            }
+
+            $lead->assigned_to = $users[($last_assigned_user_index + 1) % $user_count]->user_id;
+        }
+
         $lead->status = 'Assigned To Associate';
         $lead->save();
 
