@@ -311,44 +311,72 @@ class LeadController extends Controller
         // Get the course_id from lead
         $course_id = $lead->course_id;
 
+        $source = $lead->source;
+
         if(!$course_id)
         {
             return;
         }
 
-        $users = CourseGroup::where('course_id', $course_id)->get();
-
-        // If there are no users, then leave the lead as is
-        if (count($users) == 0) {
-            return;
-        }
-
-        // Assign the lead to the user
-        // If there is only one user, then assign the lead to that user
-        // If there are 2 users, then assign the lead to the user which was not assigned the last lead for the course
-        // If there are 3 users, then assign the lead to the user which was not assigned the last 2 leads for the course
-        // If there are 4 users, then assign the lead to the user which was not assigned the last 3 leads for the course and so on
-
-        $user_count = count($users);
-
-        if($user_count == 1)
+        if($source != 'Facebook')
         {
-            $lead->assigned_to = $users[0]->user_id;
+            $users = CourseGroup::where('course_id', $course_id)->get();
+
+            if (count($users) == 0) {
+                return;
+            }
+
+            $user_count = count($users);
+
+            if($user_count == 1)
+            {
+                $lead->assigned_to = $users[0]->user_id;
+            }
+            else
+            {
+                $last_assigned_user = Lead::where('course_id', $course_id)->latest()->first()->assigned_to;
+                $last_assigned_user_index = 0;
+                for($i = 0; $i < $user_count; $i++)
+                {
+                    if($users[$i]->user_id == $last_assigned_user)
+                    {
+                        $last_assigned_user_index = $i;
+                        break;
+                    }
+                }
+
+                $lead->assigned_to = $users[($last_assigned_user_index + 1) % $user_count]->user_id;
+            }
         }
         else
         {
-            $last_assigned_user = Lead::where('course_id', $course_id)->latest()->first()->assigned_to;
-            $last_assigned_user_index = 0;
-            for($i = 0; $i < $user_count; $i++)
-            {
-                if($users[$i]->user_id == $last_assigned_user)
-                {
-                    $last_assigned_user_index = $i;
-                    break;
-                }
+            $users = CourseGroup::where('course_id', $course_id)->get();
+
+            if (count($users) == 0) {
+                return;
             }
 
-            $lead->assigned_to = $users[($last_assigned_user_index + 1) % $user_count]->user_id;
+            $user_count = count($users);
+
+            if($user_count == 1)
+            {
+                $lead->assigned_to = $users[0]->user_id;
+            }
+            else
+            {
+                $last_assigned_user = Lead::where('course_id', $course_id)->where('source', 'Facebook')->latest()->first()->assigned_to;
+                $last_assigned_user_index = 0;
+                for($i = 0; $i < $user_count; $i++)
+                {
+                    if($users[$i]->user_id == $last_assigned_user)
+                    {
+                        $last_assigned_user_index = $i;
+                        break;
+                    }
+                }
+
+                $lead->assigned_to = $users[($last_assigned_user_index + 1) % $user_count]->user_id;
+            }
         }
 
         $lead->status = 'Assigned To Associate';
