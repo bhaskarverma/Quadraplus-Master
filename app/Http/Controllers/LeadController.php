@@ -350,7 +350,8 @@ class LeadController extends Controller
         }
         else
         {
-            $users = CourseGroup::where('course_id', $course_id)->get();
+            // Sort asc by ID
+            $users = CourseGroup::where('course_id', $course_id)->orderBy('id', 'asc')->get();
 
             if (count($users) == 0) {
                 return;
