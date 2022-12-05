@@ -83,4 +83,4 @@ Route::get('/batch/trainers', [BatchController::class, 'getTrainers'])->middlewa
 Route::get('/batch/types', [BatchController::class, 'getBatchTypes'])->middleware('auth:sanctum'); // DONE
 Route::post('/batch/type/create', [BatchController::class, 'addBatchType'])->middleware('auth:sanctum'); // DONE
 
-Route::get('/helper/bulk', [HelperController::class, 'uploadBulkData']);
+//Route::get('/helper/bulk', [HelperController::class, 'uploadBulkData']);
