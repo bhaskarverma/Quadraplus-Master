@@ -33,12 +33,11 @@ class LeadController extends Controller
 
         $lead->save();
 
-        $users = $this->assignLeadToUser($lead);
+        $this->assignLeadToUser($lead);
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Lead Added Successfully',
-            'users' => $users
+            'message' => 'Lead Added Successfully'
         ]);
     }
 
@@ -387,6 +386,6 @@ class LeadController extends Controller
         $lead->status = 'Assigned To Associate';
         $lead->save();
 
-        return $latest_lead;
+        return;
     }
 }
