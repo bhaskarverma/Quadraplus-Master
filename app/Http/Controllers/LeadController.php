@@ -387,6 +387,6 @@ class LeadController extends Controller
         $lead->status = 'Assigned To Associate';
         $lead->save();
 
-        return $last_assigned_user;
+        return $latest_lead;
     }
 }
