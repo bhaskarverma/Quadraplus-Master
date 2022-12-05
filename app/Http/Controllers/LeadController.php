@@ -335,7 +335,8 @@ class LeadController extends Controller
             }
             else
             {
-                $last_assigned_user = Lead::where('course_id', $course_id)->latest()->first()->assigned_to;
+                // where source is not faceboook
+                $last_assigned_user = Lead::where('course_id', $course_id)->where('source', '!=', 'Facebook')->orderBy('id', 'desc')->first()->assigned_to;
                 $last_assigned_user_index = 0;
                 for($i = 0; $i < $user_count; $i++)
                 {
@@ -366,7 +367,7 @@ class LeadController extends Controller
             }
             else
             {
-                $last_assigned_user = Lead::where('course_id', $course_id)->where('source', 'Facebook')->latest()->first()->assigned_to;
+                $last_assigned_user = Lead::where('course_id', $course_id)->where('source', 'Facebook')->orderBy('id', 'desc')->first()->assigned_to;
                 $last_assigned_user_index = 0;
                 for($i = 0; $i < $user_count; $i++)
                 {
