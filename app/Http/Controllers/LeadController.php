@@ -33,11 +33,12 @@ class LeadController extends Controller
 
         $lead->save();
 
-        $this->assignLeadToUser($lead);
+        $users = $this->assignLeadToUser($lead);
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Lead Added Successfully'
+            'message' => 'Lead Added Successfully',
+            'users' => $users
         ]);
     }
 
@@ -320,7 +321,7 @@ class LeadController extends Controller
 
         if($source != 'Facebook')
         {
-            $users = CourseGroup::where('course_id', $course_id)->get();
+            $users = CourseGroup::where('course_id', $course_id)->orderBy('id', 'asc')->get();
 
             if (count($users) == 0) {
                 return;
@@ -383,6 +384,6 @@ class LeadController extends Controller
         $lead->status = 'Assigned To Associate';
         $lead->save();
 
-        return;
+        return $users;
     }
 }
