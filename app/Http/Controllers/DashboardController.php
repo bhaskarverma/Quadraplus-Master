@@ -76,7 +76,7 @@ class DashboardController extends Controller
         // Fetch total quoted amount for all converted leads this month
         // Converted leads are those whose status = 'Converted'
         // Add to sales_overview_data as [associate => 'associate name', amount => total_quoted_amount]
-        $all_associates = User::where('type', 'associate')->get();
+        $all_associates = User::where('type', 'associate')->where('type', 'manager')->get();
 
         // Loop through all associates and find the total converted leads
         foreach($all_associates as $associate)
@@ -121,7 +121,7 @@ class DashboardController extends Controller
         // Payments are those whose status = 'Paid'
         $collection_overview_data = [];
 
-        $all_associates = User::where('type', 'associate')->get();
+        $all_associates = User::where('type', 'associate')->where('type', 'manager')->get();
         $total_paid_amount_this_month = 0;
         $total_paid_amount_last_month = 0;
 
@@ -178,7 +178,7 @@ class DashboardController extends Controller
         // Payments are those whose status = 'Paid'
         $referral_overview_data = [];
 
-        $all_associates = User::where('type', 'associate')->get();
+        $all_associates = User::where('type', 'associate')->where('type', 'manager')->get();
         $total_paid_amount_this_month = 0;
         $total_paid_amount_last_month = 0;
 
@@ -418,7 +418,7 @@ class DashboardController extends Controller
         $detailed_data = [];
 
         // Fetch all the users
-        $users = User::where('type', 'associate')->get();
+        $users = User::where('type', 'associate')->where('type', 'manager')->get();
 
         // Loop through the users and fetch all their assigned courses
         foreach($users as $user)
