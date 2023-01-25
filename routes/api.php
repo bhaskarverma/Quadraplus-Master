@@ -70,6 +70,7 @@ Route::post('/batch/update', [BatchController::class, 'updateBatch'])->middlewar
 Route::post('/batch/list/course', [BatchController::class, 'getBatchesForCourse'])->middleware('auth:sanctum');
 Route::post('/batch/list/group', [BatchController::class, 'getBatchGroups'])->middleware('auth:sanctum'); // DONE
 Route::post('/batch/add-to-batch', [BatchController::class, 'addToBatch'])->middleware('auth:sanctum'); // DONE
+Route::post('/batch/add-to-multiple', [BatchController::class, 'addToBatchMultiple'])->middleware('auth:sanctum'); // DONE
 Route::post('/batch/remove-from-batch', [BatchController::class, 'removeFromBatch'])->middleware('auth:sanctum');
 Route::post('/batch/change-batch', [BatchController::class, 'changeBatch'])->middleware('auth:sanctum'); // DONE
 Route::get('/batch/leads-remaining/{batchId}', [BatchController::class, 'getLeadsRemainingInBatch'])->middleware('auth:sanctum');

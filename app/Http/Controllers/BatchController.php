@@ -420,7 +420,15 @@ class BatchController extends Controller
         $batch_id = $request->batch_id;
 
         // Fetch all batches where the course_id is equal to the course_id passed in the request and the start_date is greater than the current datetime
-        $batches = Batch::where('course_id', $course_id)->where('start_date', '>', now())->get();
+        // $batches = Batch::where('course_id', $course_id)->where('start_date', '>', now())->get();
+
+        // Fetch all unique batches where batch schedule's class datetime is greater than the current datetime
+        $batches = Batch::whereHas('batchSchedules', function($query) {
+            $query->where('class_datetime', '>', now());
+        })->get();
+
+        // remove duplicate batches
+        $batches = $batches->unique('id');
 
         //If batch_id is present, then remove the batch from the batches array
         if($batch_id) {
@@ -490,6 +498,41 @@ class BatchController extends Controller
         $batchPayment->payment_mode = $request->payment_method;
         $batchPayment->save();
         return response()->json(['success' => true, 'message' => 'Participant added to batch successfully']);
+    }
+
+    public function addToBatchMultiple(Request $request)
+    {
+        $batchIds = $request->batch_id;
+        $participantId = $request->participant_id;
+
+        $batchGroup = new BatchGroup();
+        $batchPayment = new BatchPaymentHistory();
+
+        $batchGroup->batch_id = $batchIds[0];
+        $batchGroup->participant_id = $participantId;
+        $batchPayment->batch_group_id = $batchGroup->id;
+        $batchPayment->amount = $request->paid_amt;
+        $batchPayment->payment_mode = $request->payment_method;
+
+        $batchGroup->save();
+        $batchPayment->save();
+
+        $count = count($batchIds);
+
+        $lead = Lead::find($participantId);
+
+        // duplicate the lead and create a new lead for each batch
+        for($i = 1; $i < $count; $i++) {
+            $newLead = $lead->replicate();
+            $newLead->save();
+
+            $batchGroup = new BatchGroup();
+            $batchGroup->batch_id = $batchIds[$i];
+            $batchGroup->participant_id = $newLead->id;
+            $batchGroup->save();
+        }
+
+        return response()->json(['success' => true, 'message' => 'Participant added to batch(es) successfully']);
     }
 
     public function changeBatch(Request $request)
