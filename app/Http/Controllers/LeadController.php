@@ -123,7 +123,7 @@ class LeadController extends Controller
         $endDate = request()->end_date . ' 23:59:59';
 
         // Check if the user is a admin, then only show all the leads
-        if(!(auth()->user()->type == 'admin'))
+        if(!(auth()->user()->type == 'admin' || auth()->user()->type == 'manager'))
         {
             return response()->json([
                 'status' => 'failure',
