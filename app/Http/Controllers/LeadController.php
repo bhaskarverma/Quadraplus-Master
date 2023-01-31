@@ -260,7 +260,7 @@ class LeadController extends Controller
 
     public function manuallyAssignLeadToUser(Request $request)
     {
-        if(!(auth()->user()->type == 'admin'))
+        if(!(auth()->user()->type == 'admin' || auth()->user()->type == 'manager'))
         {
             return response()->json([
                 'status' => 'failure',
