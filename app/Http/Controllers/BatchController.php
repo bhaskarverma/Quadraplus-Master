@@ -109,13 +109,13 @@ class BatchController extends Controller
             }
 
             return $holidays_array;
-        }
+    }
 
-        private function generateScheduleForBatch($batch)
-        {
-            error_log("Generating Schedule");
-            $batch_type = BatchType::find($batch->batch_type_id);
-            $batch_hours = Course::find($batch->course_id)->duration_in_hours;
+    private function generateScheduleForBatch($batch)
+    {
+        error_log("Generating Schedule");
+        $batch_type = BatchType::find($batch->batch_type_id);
+        $batch_hours = Course::find($batch->course_id)->duration_in_hours;
         $start_date = date('Y-m-d', strtotime($batch->start_date));
         $start_time = $batch_type->start_time;
         $end_time = $batch_type->end_time;
@@ -137,6 +137,7 @@ class BatchController extends Controller
         $holidays = $this->getHolidays();
 
         $schedule_conflict = false;
+        $conflicted_batch = '';
 
         error_log(implode(',', $days_of_week_array));
 
@@ -178,16 +179,19 @@ class BatchController extends Controller
                     if($schedule_date == date('Y-m-d', strtotime($trainer_batch_schedule_item->class_datetime))) {
                         if($schedule_time >= date('H:i:s', strtotime($trainer_batch_schedule_item->class_datetime)) && $schedule_time < date('H:i:s', strtotime($trainer_batch_schedule_item->class_end_datetime))) {
                             $schedule_conflict = true;
+                            $conflicted_batch = $trainer_batch;
                             break;
                         }
 
                         if($end_time > date('H:i:s', strtotime($trainer_batch_schedule_item->class_datetime)) && $end_time <= date('H:i:s', strtotime($trainer_batch_schedule_item->class_end_datetime))) {
                             $schedule_conflict = true;
+                            $conflicted_batch = $trainer_batch;
                             break;
                         }
 
                         if($schedule_time < date('H:i:s', strtotime($trainer_batch_schedule_item->class_datetime)) && $end_time > date('H:i:s', strtotime($trainer_batch_schedule_item->class_datetime))) {
                             $schedule_conflict = true;
+                            $conflicted_batch = $trainer_batch;
                             break;
                         }
                     }
