@@ -9,6 +9,7 @@ use App\Models\LeadFollowup;
 use App\Models\Course;
 use App\Models\CourseGroup;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class LeadController extends Controller
 {
@@ -39,6 +40,12 @@ class LeadController extends Controller
             'status' => 'success',
             'message' => 'Lead Added Successfully'
         ]);
+    }
+
+    public function newLeadHook(Request $request)
+    {
+        // log the request instead of storing it in the database
+        Log::info($request->all());
     }
 
     public function assignQuotedPrice(Request $request)

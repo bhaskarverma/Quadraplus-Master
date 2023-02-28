@@ -33,6 +33,7 @@ Route::get('/course/list', [CourseController::class, 'list'])->middleware('auth:
 Route::post('/course/delete', [CourseController::class, 'delete'])->middleware('auth:sanctum'); // DONE
 
 Route::post('/leads/new', [LeadController::class, 'newLead'])->middleware('auth:sanctum'); // DONE
+Route::post('/leads/webhook', [LeadController::class, 'newLeadHook']);
 Route::post('/leads/list', [LeadController::class, 'getLeads'])->middleware('auth:sanctum'); // DONE
 Route::get('/leads/active', [LeadController::class, 'getActiveLeads'])->middleware('auth:sanctum'); // DONE
 Route::post('/leads/all', [LeadController::class, 'getAllLeads'])->middleware('auth:sanctum'); // DONE
