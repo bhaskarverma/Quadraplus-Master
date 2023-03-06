@@ -13,6 +13,36 @@ use App\Models\LeadFollowup;
 
 class DashboardController extends Controller
 {
+    public function TotalLeadsData()
+    {
+        // get all leads for current month
+        $leads = Lead::whereMonth('created_at', date('m'))->get();
+
+        // $res is a 3 dimensional array => [associate_id => [course_id => [count]]]
+        $res = [];
+
+        // Loop through all leads and add to $res
+        foreach($leads as $lead)
+        {
+            // If associate_id is not present in $res, add it
+            if(!array_key_exists($lead->assigned_to, $res))
+            {
+                $res[$lead->assigned_to] = [];
+            }
+
+            // If course_id is not present in $res[associate_id], add it
+            if(!array_key_exists($lead->course_id, $res[$lead->assigned_to]))
+            {
+                $res[$lead->assigned_to][$lead->course_id] = 0;
+            }
+
+            // Increment the count for $res[associate_id][course_id]
+            $res[$lead->assigned_to][$lead->course_id]++;
+        }
+
+        return response()->json($res);
+    }
+
     public function TotalSales()
     {
         $start_date = 1;
