@@ -66,6 +66,7 @@ class DashboardController extends Controller
                     $res[$assigned_to][$course_id]['leadCount'][] = Lead::where('assigned_to', $assigned_to)
                         ->where('course_id', $course_id)
                         ->whereMonth('created_at', date('m'))
+                        ->whereYear('created_at', date('Y'))
                         ->whereDay('created_at', $i)
                         ->count();
                 }
