@@ -56,7 +56,7 @@ Route::post('/dashboard/associate-efforts', [DashboardController::class, 'Associ
 Route::post('/dashboard/course-efforts', [DashboardController::class, 'CourseBasedEffortBetweenDates'])->middleware('auth:sanctum'); // DONE
 Route::post('/dashboard/source-efforts', [DashboardController::class, 'SourceBasedEffortBetweenDates'])->middleware('auth:sanctum'); // DONE
 Route::get('/dashboard/total-sales', [DashboardController::class, 'TotalSales'])->middleware('auth:sanctum'); // DONE
-Route::get('/dashboard/total-leads', [DashboardController::class, 'TotalLeadsData'])->middleware('auth:sanctum'); // DONE
+Route::get('/dashboard/total-leads', [DashboardController::class, 'TotalLeadsData']); // DONE
 Route::get('/dashboard/sales-overview', [DashboardController::class, 'SalesOverview'])->middleware('auth:sanctum'); // DONE
 Route::get('/dashboard/collection-overview', [DashboardController::class, 'CollectionOverview'])->middleware('auth:sanctum'); // DONE
 Route::get('/dashboard/referral-overview', [DashboardController::class, 'ReferralOverview'])->middleware('auth:sanctum'); // DONE
