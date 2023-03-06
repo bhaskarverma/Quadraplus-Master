@@ -11,17 +11,20 @@ use App\Models\BatchGroup;
 use App\Models\BatchPaymentHistory;
 use App\Models\LeadFollowup;
 
+use Illuminate\Support\Facades\DB;
+
 class DashboardController extends Controller
 {
     public function TotalLeadsData()
     {
+        DB::enableQueryLog();
         // get all leads for current month
         $leads = Lead::whereMonth('created_at', date('m'));
 
         return response()->json([
             'month' => date('m'),
             'leads_count' => $leads->get()->count(),
-            'sql' => $leads->toSql(),
+            'sql' => DB::getQueryLog(),
         ]);
 
         // $res is a 3 dimensional array => [associate_id => [course_id => [count => cnt, leadCountForEachDay => [day1, day2, ...]]]]
