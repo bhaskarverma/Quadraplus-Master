@@ -18,7 +18,10 @@ class DashboardController extends Controller
         // get all leads for current month
         $leads = Lead::whereMonth('created_at', date('m'))->get();
 
-        return response()->json($leads->count());
+        return response()->json([
+            'month' => date('m'),
+            'leads_count' => $leads->count(),
+        ]);
 
         // $res is a 3 dimensional array => [associate_id => [course_id => [count => cnt, leadCountForEachDay => [day1, day2, ...]]]]
         $res = [];
