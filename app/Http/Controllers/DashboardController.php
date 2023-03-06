@@ -27,6 +27,11 @@ class DashboardController extends Controller
             // If associate_id is not present in $res, add it
             if(!array_key_exists($lead->assigned_to, $res))
             {
+                if($lead->assigned_to == null)
+                {
+                    $lead->assigned_to = 0;
+                }
+
                 $res[$lead->assigned_to] = [];
             }
 
