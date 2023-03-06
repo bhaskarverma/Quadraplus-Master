@@ -16,10 +16,10 @@ class DashboardController extends Controller
     public function TotalLeadsData()
     {
         // get all leads for current month
-        $leads = Lead::whereMonth('created_at', date('m'))->get();
+        $leads = Lead::whereMonth('created_at', date('n'))->get();
 
         return response()->json([
-            'month' => date('m'),
+            'month' => date('n'),
             'leads_count' => $leads->count(),
         ]);
 
