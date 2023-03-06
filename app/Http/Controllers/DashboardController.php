@@ -18,7 +18,7 @@ class DashboardController extends Controller
         // get all leads for current month
         $leads = Lead::whereMonth('created_at', date('m'))->get();
 
-        // $res is a 3 dimensional array => [associate_id => [course_id => [count]]]
+        // $res is a 3 dimensional array => [associate_id => [course_id => [count => cnt, leadCountForEachDay => [day1, day2, ...]]]]
         $res = [];
 
         // Loop through all leads and add to $res
@@ -38,11 +38,34 @@ class DashboardController extends Controller
             // If course_id is not present in $res[associate_id], add it
             if(!array_key_exists($lead->course_id, $res[$lead->assigned_to]))
             {
-                $res[$lead->assigned_to][$lead->course_id] = 0;
+                $res[$lead->assigned_to][$lead->course_id] = [];
+                $res[$lead->assigned_to][$lead->course_id]['count'] = 0;
             }
 
             // Increment the count for $res[associate_id][course_id]
-            $res[$lead->assigned_to][$lead->course_id]++;
+            $res[$lead->assigned_to][$lead->course_id]['count']++;
+        }
+
+        // Loop through all the dates from start to current inclusive,
+        // Fetch all the leads for that date in current month and add to array
+
+        $start_date = 1;
+        $current_date = idate('d');
+
+        foreach($res as $assigned_to => $data)
+        {
+            foreach($data as $course_id => $data1)
+            {
+                $res[$assigned_to][$course_id]['leadCount'] = [];
+
+                for ($i = $start_date; $i <= $current_date; $i++) {
+                    $res[$assigned_to][$course_id]['leadCount'][] = Lead::where('assigned_to', $assigned_to)
+                        ->where('course_id', $course_id)
+                        ->whereMonth('created_at', date('m'))
+                        ->whereDay('created_at', $i)
+                        ->count();
+                }
+            }
         }
 
         return response()->json($res);
