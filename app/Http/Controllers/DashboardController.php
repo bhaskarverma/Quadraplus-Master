@@ -17,13 +17,15 @@ class DashboardController extends Controller
 {
     public function TotalLeadsData()
     {
-        // get all leads for current month and current year
+        // get all leads from 1st of this month to current date
         $leads = Lead::whereMonth('created_at', date('m'))
             ->whereYear('created_at', date('Y'))
             ->get();
 
         // $res is a 3 dimensional array => [associate_id => [course_id => [count => cnt, leadCountForEachDay => [day1, day2, ...]]]]
         $res = [];
+
+        $res['total'] = $leads->count();
 
         // Loop through all leads and add to $res
         foreach($leads as $lead)
