@@ -62,15 +62,15 @@ class DashboardController extends Controller
             {
                 $res[$assigned_to][$course_id]['leadCount'] = [];
 
+                $assigned_to_new = $assigned_to == 0 ? null : $assigned_to;
+
                 for ($i = $start_date; $i <= $current_date; $i++) {
-                    $res[$assigned_to][$course_id]['leadCount'][] = Lead::where('assigned_to', $assigned_to)
+                    $res[$assigned_to][$course_id]['leadCount'][] = Lead::where('assigned_to', $assigned_to_new)
                         ->where('course_id', $course_id)
                         ->whereMonth('created_at', date('m'))
                         ->whereYear('created_at', date('Y'))
                         ->whereDay('created_at', $i)
                         ->count();
-                    $res[$assigned_to][$course_id]['assigned_to'] = $assigned_to;
-                    $res[$assigned_to][$course_id]['course_id'] = $course_id;
                 }
             }
         }
