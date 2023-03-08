@@ -27,7 +27,7 @@ class DashboardController extends Controller
 
         //$res['total'] = $leads->count();
 
-        return response()->json($res);
+        //return response()->json($res);
 
         // Loop through all leads and add to $res
         foreach($leads as $lead)
