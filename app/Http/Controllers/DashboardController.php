@@ -25,7 +25,7 @@ class DashboardController extends Controller
         // $res is a 3 dimensional array => [associate_id => [course_id => [count => cnt, leadCountForEachDay => [day1, day2, ...]]]]
         $res = [];
 
-        $res['total'] = $leads->count();
+        //$res['total'] = $leads->count();
 
         return response()->json($res);
 
