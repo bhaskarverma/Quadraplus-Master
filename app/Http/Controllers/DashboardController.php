@@ -69,6 +69,8 @@ class DashboardController extends Controller
                         ->whereYear('created_at', date('Y'))
                         ->whereDay('created_at', $i)
                         ->count();
+                    $res[$assigned_to][$course_id]['assigned_to'] = $assigned_to;
+                    $res[$assigned_to][$course_id]['course_id'] = $course_id;
                 }
             }
         }
