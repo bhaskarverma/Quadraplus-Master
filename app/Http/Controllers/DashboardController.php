@@ -315,7 +315,7 @@ class DashboardController extends Controller
 
             $registration_overview_data[] = [
                 'associate' => $associate->name,
-                'total_leads' => $total_leads
+                'value' => $total_leads
             ];
         }
 
