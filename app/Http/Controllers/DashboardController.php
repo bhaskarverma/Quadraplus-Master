@@ -298,6 +298,39 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function RegistrationOverview()
+    {
+        // fetch the total number of leads registered for the current month of the current year only group by assigned_to
+        $registration_overview_data = [];
+
+        $all_associates = User::where('type', 'associate')->orWhere('type', 'manager')->get();
+
+        foreach($all_associates as $associate)
+        {
+            $total_leads = Lead::where('assigned_to', $associate->id)
+                ->whereYear('updated_at', date('Y'))
+                ->whereMonth('updated_at', date('m'))
+                ->where('status', 'Converted')
+                ->count();
+
+            $registration_overview_data[] = [
+                'associate' => $associate->name,
+                'total_leads' => $total_leads
+            ];
+        }
+
+        // find the total of all the leads registered for the current month of the current year
+        $total_leads_this_month = Lead::whereYear('updated_at', date('Y'))
+            ->whereMonth('updated_at', date('m'))
+            ->where('status', 'Converted')
+            ->count();
+
+        return response()->json([
+            'data' => $registration_overview_data,
+            'total_leads' => $total_leads_this_month
+        ]);
+    }
+
     public function MeetingDetails()
     {
         // Fetch all the Lead Followups where date_of_next_action is today

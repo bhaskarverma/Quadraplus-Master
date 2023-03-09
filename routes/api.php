@@ -60,6 +60,7 @@ Route::get('/dashboard/total-leads', [DashboardController::class, 'TotalLeadsDat
 Route::get('/dashboard/sales-overview', [DashboardController::class, 'SalesOverview'])->middleware('auth:sanctum'); // DONE
 Route::get('/dashboard/collection-overview', [DashboardController::class, 'CollectionOverview'])->middleware('auth:sanctum'); // DONE
 Route::get('/dashboard/referral-overview', [DashboardController::class, 'ReferralOverview'])->middleware('auth:sanctum'); // DONE
+Route::get('/dashboard/registration-overview', [DashboardController::class, 'RegistrationOverview'])->middleware('auth:sanctum'); // DONE
 Route::get('/dashboard/meeting-schedule', [DashboardController::class, 'MeetingDetails'])->middleware('auth:sanctum'); // DONE
 Route::get('/dashboard/transaction-details', [DashboardController::class, 'TransactionDetails'])->middleware('auth:sanctum'); // DONE
 Route::get('/dashboard/total-sales-last-month', [DashboardController::class, 'TotalSalesLastMonth'])->middleware('auth:sanctum'); // DONE
