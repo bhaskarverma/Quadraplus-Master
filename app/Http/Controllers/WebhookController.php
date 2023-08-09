@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Lead;
 use App\Models\Course;
 use App\Models\CourseGroup;
+use Illuminate\Support\Facades\Log;
 
 class WebhookController extends Controller
 {
@@ -43,7 +44,7 @@ class WebhookController extends Controller
             }
         }
 
-        error_log($survey);
+        Log::info($survey);
 
         // check if course is present in database
         $course_id = Course::where('name', $course)->first()->id;
