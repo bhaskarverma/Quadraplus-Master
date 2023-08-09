@@ -15,6 +15,7 @@ class Lead extends Model
         'email',
         'company',
         'course_id',
+        'other_course',
         'status',
         'assigned_to',
         'closing_remark',
