@@ -33,7 +33,6 @@ Route::get('/course/list', [CourseController::class, 'list'])->middleware('auth:
 Route::post('/course/delete', [CourseController::class, 'delete'])->middleware('auth:sanctum'); // DONE
 
 Route::post('/leads/new', [LeadController::class, 'newLead'])->middleware('auth:sanctum'); // DONE
-Route::post('/leads/webhook', [LeadController::class, 'newLeadHook']);
 Route::post('/leads/list', [LeadController::class, 'getLeads'])->middleware('auth:sanctum'); // DONE
 Route::get('/leads/active', [LeadController::class, 'getActiveLeads'])->middleware('auth:sanctum'); // DONE
 Route::post('/leads/all', [LeadController::class, 'getAllLeads'])->middleware('auth:sanctum'); // DONE
@@ -86,5 +85,7 @@ Route::get('/batch/attendance/{batchId}', [BatchController::class, 'fetchAttenda
 Route::get('/batch/trainers', [BatchController::class, 'getTrainers'])->middleware('auth:sanctum'); // DONE
 Route::get('/batch/types', [BatchController::class, 'getBatchTypes'])->middleware('auth:sanctum'); // DONE
 Route::post('/batch/type/create', [BatchController::class, 'addBatchType'])->middleware('auth:sanctum'); // DONE
+
+Route::post('/webhook/livechat', [WebhookController::class, 'liveChat']);
 
 //Route::get('/helper/bulk', [HelperController::class, 'uploadBulkData']);

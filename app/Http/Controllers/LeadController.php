@@ -42,12 +42,6 @@ class LeadController extends Controller
         ]);
     }
 
-    public function newLeadHook(Request $request)
-    {
-        // log the request instead of storing it in the database
-        Log::info($request->all());
-    }
-
     public function assignQuotedPrice(Request $request)
     {
         $lead = Lead::find($request->lead_id);
