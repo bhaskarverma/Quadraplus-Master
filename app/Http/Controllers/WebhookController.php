@@ -43,6 +43,8 @@ class WebhookController extends Controller
             }
         }
 
+        error_log($survey);
+
         // check if course is present in database
         $course_id = Course::where('name', $course)->first()->id;
 
