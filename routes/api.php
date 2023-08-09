@@ -9,6 +9,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BatchController;
 use App\Http\Controllers\HelperController;
+use App\Http\Controllers\WebhookController;
 
 /*
 |--------------------------------------------------------------------------
