@@ -23,23 +23,23 @@ class WebhookController extends Controller
 
         foreach($survey as $question) {
             if($question['label'] == 'Name:') {
-                $name = $question['value'];
+                $name = $question['answer'];
             }
 
             if($question['label'] == 'Contact No:') {
-                $contact_no = $question['value'];
+                $contact_no = $question['answer'];
             }
 
             if($question['label'] == 'Course:') {
-                $course = $question['value'];
+                $course = $question['answer'];
             }
 
             if($question['label'] == 'Other Course:') {
-                $course_other = $question['value'];
+                $course_other = $question['answer'];
             }
 
             if($question['label'] == 'Email:') {
-                $email = $question['value'];
+                $email = $question['answer'];
             }
         }
 
