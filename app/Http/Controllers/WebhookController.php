@@ -13,58 +13,61 @@ class WebhookController extends Controller
     public function liveChat(Request $request) {
         $survey = $request->pre_chat_survey; // Get the survey data from webhook request of LiveChat.com
 
-        // $name = '';
-        // $contact_no = '';
-        // $email = '';
-        // $company = '';
-        // $course = '';
-        // $course_other = '';
-        // $source = 'Live Chat';
-        // $type = 'medium';
+        $name = '';
+        $contact_no = '';
+        $email = '';
+        $company = '';
+        $course = '';
+        $course_other = '';
+        $source = 'Live Chat';
+        $type = 'medium';
 
-        // foreach($survey as $question) {
-        //     if($question['label'] == 'Name:') {
-        //         $name = $question['answer'];
-        //     }
+        foreach($survey as $question) {
+            if($question['label'] == 'Name:') {
+                $name = $question['answer'];
+            }
 
-        //     if($question['label'] == 'Contact No:') {
-        //         $contact_no = $question['answer'];
-        //     }
+            if($question['label'] == 'Contact No:') {
+                $contact_no = $question['answer'];
+            }
 
-        //     if($question['label'] == 'Course:') {
-        //         $course = $question['answer'];
-        //     }
+            if($question['label'] == 'Course:') {
+                $answers = $question['answers'];
 
-        //     if($question['label'] == 'Other Course:') {
-        //         $course_other = $question['answer'];
-        //     }
+                foreach($answers as $answer) {
+                    if($answer['chosen'] == true) {
+                        $course = $answer['label'];
+                    }
+                }
+            }
 
-        //     if($question['label'] == 'Email:') {
-        //         $email = $question['answer'];
-        //     }
-        // }
+            if($question['label'] == 'Other Course:') {
+                $course_other = $question['answer'];
+            }
 
-        Log::info('Live Chat Webhook');
-        Log::info($survey);
+            if($question['label'] == 'Email:') {
+                $email = $question['answer'];
+            }
+        }
 
         // check if course is present in database
-        // $course_id = Course::where('name', $course)->first()->id;
+        $course_id = Course::where('name', $course)->first()->id;
 
-        // $lead = new Lead;
-        // $lead->name = $name;
-        // $lead->contact_no = $contact_no;
-        // $lead->email = $email;
-        // $lead->company = $company;
-        // $lead->course_id = $course_id;
-        // $lead->other_course = $course_other;
-        // $lead->status = 'In The Pool';
-        // $lead->assigned_to = null;
-        // $lead->type = $type;
-        // $lead->source = $source;
+        $lead = new Lead;
+        $lead->name = $name;
+        $lead->contact_no = $contact_no;
+        $lead->email = $email;
+        $lead->company = $company;
+        $lead->course_id = $course_id;
+        $lead->other_course = $course_other;
+        $lead->status = 'In The Pool';
+        $lead->assigned_to = null;
+        $lead->type = $type;
+        $lead->source = $source;
 
-        // $lead->save();
+        $lead->save();
 
-        // $this->assignLeadToUser($lead);
+        $this->assignLeadToUser($lead);
 
         return response()->json([
             'status' => 'success',
