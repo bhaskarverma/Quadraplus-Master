@@ -51,7 +51,11 @@ class WebhookController extends Controller
         }
 
         // check if course is present in database
-        $course_id = Course::where('name', $course)->first()->id;
+        if($course != '') {
+            $course_id = Course::where('name', $course)->first()->id;
+        } else {
+            $course_id = null;
+        }
 
         $lead = new Lead;
         $lead->name = $name;
