@@ -161,9 +161,8 @@ class WebhookController extends Controller
 
         return;
     }
-}
 
-function courseList() {
+    public function courseList() {
         $courses = Course::all();
 
         // Remove created_at and updated_at fields from the response
@@ -180,5 +179,7 @@ function courseList() {
         }
 
         return response()->json($ret);
+
+}
 
 }
