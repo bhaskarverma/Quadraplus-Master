@@ -151,7 +151,12 @@ class LeadController extends Controller
         // Add Course Field to the leads
         foreach($leads as $lead)
         {
-            $lead->course_name = Course::find($lead->course_id)->name;
+            $course = Course::find($lead->course_id);
+            if($course) {
+                $lead->course_name = $course->name;
+            } else {
+                $lead->course_name = $course->course_other;
+            }
 
             // Add Next Update Field
             $lead_followups = LeadFollowup::where('lead_id', $lead->id)->latest()->first();
