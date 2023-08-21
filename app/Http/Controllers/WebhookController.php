@@ -163,6 +163,12 @@ class WebhookController extends Controller
     }
 
     public function createLeadWhatsapp(Request $request) {
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Lead Added Successfully'
+        ]);
+
         $name = $request->name;
         $contact_no = $request->phone;
         $email = $request->email;
