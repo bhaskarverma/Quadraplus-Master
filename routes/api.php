@@ -30,7 +30,7 @@ Route::get('/auth/me', [AuthController::class, 'userDetails'])->middleware('auth
 Route::post('/auth/passwordChange', [AuthController::class, 'passwordChange'])->middleware('auth:sanctum'); // DONE
 
 Route::post('/course/create', [CourseController::class, 'createCourse'])->middleware('auth:sanctum'); // DONE
-Route::get('/course/list', [CourseController::class, 'list']); // DONE
+Route::get('/course/list', [CourseController::class, 'list'])->middleware('auth:sanctum'); // DONE
 Route::post('/course/delete', [CourseController::class, 'delete'])->middleware('auth:sanctum'); // DONE
 
 Route::post('/leads/new', [LeadController::class, 'newLead'])->middleware('auth:sanctum'); // DONE
@@ -88,5 +88,6 @@ Route::get('/batch/types', [BatchController::class, 'getBatchTypes'])->middlewar
 Route::post('/batch/type/create', [BatchController::class, 'addBatchType'])->middleware('auth:sanctum'); // DONE
 
 Route::post('/webhook/livechat', [WebhookController::class, 'liveChat']);
+Route::get('/open/courses/list', [WebhookController::class, 'courseList']);
 
 //Route::get('/helper/bulk', [HelperController::class, 'uploadBulkData']);

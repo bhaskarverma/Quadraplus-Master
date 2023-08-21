@@ -162,3 +162,23 @@ class WebhookController extends Controller
         return;
     }
 }
+
+function courseList() {
+        $courses = Course::all();
+
+        // Remove created_at and updated_at fields from the response
+        $courses = $courses->map(function($course) {
+            unset($course->created_at);
+            unset($course->updated_at);
+            return $course;
+        });
+
+        $ret = [];
+
+        foreach($courses as $course) {
+            $ret[] = $course->name;
+        }
+
+        return response()->json($ret);
+
+}
