@@ -88,6 +88,6 @@ Route::get('/batch/types', [BatchController::class, 'getBatchTypes'])->middlewar
 Route::post('/batch/type/create', [BatchController::class, 'addBatchType'])->middleware('auth:sanctum'); // DONE
 
 Route::post('/webhook/livechat', [WebhookController::class, 'liveChat']);
-Route::get('/webhook/whatsapp/create', [WebhookController::class, 'createLeadWhatsapp']);
+Route::post('/webhook/whatsapp/create', [WebhookController::class, 'createLeadWhatsapp']);
 
 //Route::get('/helper/bulk', [HelperController::class, 'uploadBulkData']);
