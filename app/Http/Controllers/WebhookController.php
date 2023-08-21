@@ -164,6 +164,10 @@ class WebhookController extends Controller
 
     public function createLeadWhatsapp(Request $request) {
 
+        // print complete request to log file
+
+        Log::info($request);
+
         $name = $request->name;
         $contact_no = $request->phone;
         $email = $request->email;
