@@ -155,7 +155,7 @@ class LeadController extends Controller
             if($course) {
                 $lead->course_name = $course->name;
             } else {
-                $lead->course_name = $course->course_other;
+                $lead->course_name = $lead->other_course;
             }
 
             // Add Next Update Field
