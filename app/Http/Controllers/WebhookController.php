@@ -17,7 +17,7 @@ class WebhookController extends Controller
         $contact_no = '';
         $email = '';
         $company = '';
-        $course = '';
+        $course = null;
         $course_other = '';
         $source = 'Live Chat';
         $type = 'medium';
@@ -162,24 +162,34 @@ class WebhookController extends Controller
         return;
     }
 
-    public function courseList() {
-        $courses = Course::all();
+    public function createLeadWhatsapp(Request $request) {
+        $name = $request->name;
+        $contact_no = $request->phone;
+        $email = $request->email;
+        $course = null;
+        $course_other = $request->course;
+        $company = $request->company;
+        $source = 'Whatsapp';
+        $type = 'high';
 
-        // Remove created_at and updated_at fields from the response
-        $courses = $courses->map(function($course) {
-            unset($course->created_at);
-            unset($course->updated_at);
-            return $course;
-        });
+        $lead = new Lead;
+        $lead->name = $name;
+        $lead->contact_no = $contact_no;
+        $lead->email = $email;
+        $lead->company = $company;
+        $lead->course_id = $course;
+        $lead->other_course = $course_other;
+        $lead->status = 'In The Pool';
+        $lead->assigned_to = null;
+        $lead->type = $type;
+        $lead->source = $source;
 
-        $ret = [];
+        $lead->save();
 
-        foreach($courses as $course) {
-            $ret[] = $course->name;
-        }
-
-        return response()->json($ret);
-
-}
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Lead Added Successfully'
+        ]);
+    }
 
 }
