@@ -89,5 +89,6 @@ Route::post('/batch/type/create', [BatchController::class, 'addBatchType'])->mid
 
 Route::post('/webhook/livechat', [WebhookController::class, 'liveChat']);
 Route::post('/webhook/whatsapp/create', [WebhookController::class, 'createLeadWhatsapp']);
+Route::get('/hook/listCourse', [WebhookController::class, 'listCourses']);
 
 //Route::get('/helper/bulk', [HelperController::class, 'uploadBulkData']);

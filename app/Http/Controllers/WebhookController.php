@@ -197,4 +197,15 @@ class WebhookController extends Controller
         ]);
     }
 
+    public function listCourses() {
+        $courses = Course::all();
+
+        $ret = [];
+
+        foreach($courses as $course) {
+            $ret[] = $course->name;
+        }
+
+        return response()->json($ret);
+    }
 }
