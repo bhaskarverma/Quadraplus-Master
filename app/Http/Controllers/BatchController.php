@@ -47,6 +47,7 @@ class BatchController extends Controller
     private function getHolidays()
     {
         $api_endpoint = "https://calendarific.com/api/v2/holidays";
+
         $api_key = "f7a1b49a6d279ce35515dbeb88f5f95631e67eb8";
         $country = "AE";
 
@@ -57,6 +58,7 @@ class BatchController extends Controller
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $api_endpoint . "/?api_key=" . $api_key . "&country=" . $country . "&year=" . $current_year);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         $output = curl_exec($ch);
         curl_close($ch);
 
@@ -66,6 +68,7 @@ class BatchController extends Controller
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $api_endpoint . "/?api_key=" . $api_key . "&country=" . $country . "&year=" . $next_year);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
         $output = curl_exec($ch);
         curl_close($ch);
 
