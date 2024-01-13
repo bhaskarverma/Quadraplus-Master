@@ -208,4 +208,35 @@ class WebhookController extends Controller
 
         return response()->json($ret);
     }
+
+    public function createLead(Request $request) {
+
+        $name = $request->name;
+        $contact_no = $request->contactNo;
+        $email = $request->email;
+        $course = $request->courseId;
+        $otherCourse = $request->otherCourse;
+
+        $lead = new Lead;
+        $lead->name = $name;
+        $lead->contact_no = $contact_no;
+        $lead->email = $email;
+        $lead->company = '';
+        $lead->course_id = $course;
+        $lead->other_course = $otherCourse;
+        $lead->status = 'In The Pool';
+        $lead->assigned_to = null;
+        $lead->type = 'high';
+        $lead->source = 'Enquiry Form';
+
+        $lead->save();
+
+        $this->assignLeadToUser($lead);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Lead Added Successfully'
+        ]);
+
+    }
 }

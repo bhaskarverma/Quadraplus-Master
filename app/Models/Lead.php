@@ -31,7 +31,7 @@ class Lead extends Model
 
     public function leadFollowups()
     {
-        return $this->hasMany(leadFollowups::class, 'lead_id');
+        return $this->hasMany(leadFollowup::class, 'lead_id');
     }
 
     public function assignedTo()

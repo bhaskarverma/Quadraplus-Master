@@ -90,5 +90,14 @@ Route::post('/batch/type/create', [BatchController::class, 'addBatchType'])->mid
 Route::post('/webhook/livechat', [WebhookController::class, 'liveChat']);
 Route::post('/webhook/whatsapp/create', [WebhookController::class, 'createLeadWhatsapp']);
 Route::get('/hook/listCourse', [WebhookController::class, 'listCourses']);
+Route::post('/webhook/lead/create', [WebhookController::class, 'createLead']);
 
-//Route::get('/helper/bulk', [HelperController::class, 'uploadBulkData']);
+Route::get('/migrate/users', [HelperController::class, 'users']);
+Route::get('/migrate/course', [HelperController::class, 'course']);
+Route::get('/migrate/course-group', [HelperController::class, 'courseGroup']);
+Route::get('/migrate/leads', [HelperController::class, 'leads']);
+Route::get('/migrate/batch', [HelperController::class, 'batch']);
+Route::get('/migrate/batch-group', [HelperController::class, 'batchGroup']);
+Route::get('/migrate/batch-payment-history', [HelperController::class, 'batchPaymentHistory']);
+Route::get('/migrate/batch-schedule', [HelperController::class, 'batchSchedule']);
+Route::get('/migrate/lead-followup', [HelperController::class, 'leadFollowups']);
